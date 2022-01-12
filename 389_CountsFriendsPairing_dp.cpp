@@ -5,20 +5,35 @@
 #include<set>
 #define pb push_back
 using namespace std;
+int maxGold(int n, int m, vector<vector<int>> M)
+    {
+     int dp[n+1][m+1];
+for(int i=0; i < n; i++)dp[i][0] = M[i][0];
 
- int countFriendsPairings(int n) 
-    { 
-        long long int dp[n+1];
-        dp[0] = 1;
-        dp[1] = 1;
-        int m = 1000000007;
-        for(int i = 2; i <= n; i++){
-            dp[i] = (dp[i-1] + (i-1) * dp[i-2]);
-            dp[i] = dp[i] % m;
-        }
-        return dp[n];
+for(int j=1; j < m; j++){
+for(int i=0; i < n; i++){
+dp[i][j] = dp[i][j-1];
+if(i+1 < n){
+dp[i][j] = max(dp[i][j],dp[i+1][j-1]);
+}
+if(i-1 >= 0){
+dp[i][j] = max(dp[i][j],dp[i-1][j-1]) ;
+}
+dp[i][j] += M[i][j];
+}
+}
+int ans=0;
+for(int i=0; i < n; i++){
+ans = max(ans,dp[i][m-1]);
+}
+return ans;
     }
 
 int main(){
-    cout<<countFriendsPairings(5);
+    int gold[4][4]= { {1, 3, 1, 5},
+        {2, 2, 4, 1},
+        {5, 0, 2, 3},
+        {0, 6, 1, 2}};
+    int m = 4, n = 4;
+    cout << maxGold (m, n,gold);
 }
