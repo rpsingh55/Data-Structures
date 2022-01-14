@@ -2,42 +2,35 @@
 #define pb push_back
 using namespace std;
 
- vector<long long int> productExceptSelf(vector<long long int>& nums, int n) {
-       vector<long long int> jawab;
-       long long int uttar = 1;
-       int flag = 0;
-       for(auto i : nums){
-           if(i != 0){
-            uttar *= i;
-           }
-           else{
-               flag++;
-           }
-       }
-        if(flag > 1){
-               uttar = 0;
-           }
-       for(auto i : nums){
-           if(i == 0){
-               jawab.push_back(uttar);
-           }
-           else if(flag){
-               jawab.push_back(0);
-           }
-           else{
-           jawab.push_back(uttar/i);
-           }
-       }
-       return jawab;
+     static bool jaroori(int a, int b){
+        int ginti1 = 0;
+        int ginti2 = 0;
+        
+        while(a){
+            ginti1 += a & 1;
+            a = a >> 1;
+        }
+        
+        while(b){
+            ginti2 += b & 1;
+            b = b >> 1;
+        }
+        
+        return ginti1 > ginti2;
+    }
+    
+    void sortBySetBitCount(int arr[], int n)
+    {
+        stable_sort(arr,arr+n,jaroori);
+        for(int i = 0;i < n;i++){
+            cout<<arr[i]<<" ";
+        }
     }
 
 int main(){
 
-   vector<long long int> arr =  {3,5,-15,-5,15,9};
-   vector<long long int> v = productExceptSelf(arr,5);
-   for(auto i : v){
-       cout<<i<<" ";
-   }
+   int arr[] =  {3,5,15,5,15,9};
+    sortBySetBitCount(arr,6);
    return 0;
 }
  
