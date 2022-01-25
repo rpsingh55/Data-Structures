@@ -1,28 +1,30 @@
 import java.util.*;
 
 class DSA{
-   
-    static int longestSubsequence(int n, int a[])
-    {
-        int[] dp = new int[n+1];
-        dp[0] = 1;
-        for(int i = 1;i < n;i++){
-            dp[i] = 1;
-            for(int j = 0;j < i;j++){
-                if(a[i] > a[j]){
-                    dp[i] = Math.max(dp[i] , dp[j] + 1);
-                }
-            }
+    public static int prkriya(int n, int x, int y, int z, int[] dp){
+        if(n < 0){
+            return Integer.MIN_VALUE;
         }
-        int jawab = 0;
-        for(int i = 0;i < n;i++){
-            jawab = Math.max(jawab, dp[i]);
+        if(n == 0){
+            return 0;
         }
-        return jawab;
+        if(dp[n] != -1){
+            return dp[n];
+        }
+        int a = prkriya(n-x, x, y, z, dp);
+        int b = prkriya(n-y, x, y, z, dp);
+        int c = prkriya(n-z, x, y, z, dp);
+        return dp[n] = Math.max(a , Math.max(b , c)) + 1;
     }
     
+    public static int maximizeCuts(int n, int x, int y, int z)
+    {
+       int[] dp = new int[n+1];
+       Arrays.fill(dp,-1);
+       int jawab =  prkriya(n, x, y, z, dp);
+       return jawab < 0 ? 0 : jawab;
+    }
     public static void main(String[] args) {
-        int[] arr = {5,2,4,3,4};
-        System.out.println(longestSubsequence(5, arr));
+        System.out.println(maximizeCuts(50,2,10,5));
     }
 }
