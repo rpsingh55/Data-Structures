@@ -1,5 +1,3 @@
-import java.util.*;
-
 class DSA{
    
     static int longestSubsequence(int n, int a[])
