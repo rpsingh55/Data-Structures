@@ -1,30 +1,86 @@
-import java.util.*;
 
-class DSA{
-    public static int prkriya(int n, int x, int y, int z, int[] dp){
-        if(n < 0){
-            return Integer.MIN_VALUE;
-        }
-        if(n == 0){
-            return 0;
-        }
-        if(dp[n] != -1){
-            return dp[n];
-        }
-        int a = prkriya(n-x, x, y, z, dp);
-        int b = prkriya(n-y, x, y, z, dp);
-        int c = prkriya(n-z, x, y, z, dp);
-        return dp[n] = Math.max(a , Math.max(b , c)) + 1;
-    }
-    
-    public static int maximizeCuts(int n, int x, int y, int z)
+import java.util.*;
+class Node
     {
-       int[] dp = new int[n+1];
-       Arrays.fill(dp,-1);
-       int jawab =  prkriya(n, x, y, z, dp);
-       return jawab < 0 ? 0 : jawab;
+        int data;
+        Node next;
+        Node(int d) {data = d; next = null; }
     }
-    public static void main(String[] args) {
-        System.out.println(maximizeCuts(50,2,3,5));
+class Remove_Duplicate_From_LL
+{
+    Node head;  
+    Node tail;
+	public void addToTheLast(Node node) 
+	{
+	  if (head == null) 
+	  {
+	   head = node;
+	   tail = node;
+	  } 
+	  else 
+	  {
+	   tail.next = node;
+	   tail = node;
+	  }
+	}
+      void printList()
+    {
+        Node temp = head;
+        while (temp != null)
+        {
+           System.out.print(temp.data+" ");
+           temp = temp.next;
+        }  
+        System.out.println();
+    }
+	
+	public static void main(String args[])
+    {
+         Scanner sc = new Scanner(System.in);
+		 int t=sc.nextInt();
+		 while(t>0)
+         {
+			int n = sc.nextInt();
+			Remove_Duplicate_From_LL llist = new Remove_Duplicate_From_LL(); 
+			int a1=sc.nextInt();
+			Node head= new Node(a1);
+            llist.addToTheLast(head);
+            for (int i = 1; i < n; i++) 
+			{
+				int a = sc.nextInt(); 
+				llist.addToTheLast(new Node(a));
+			}
+			
+        GfG g = new GfG();
+		llist.head = g.removeDuplicates(llist.head);
+		llist.printList();
+		
+        t--;		
+        }
+    }}
+
+
+class GfG
+{
+    
+    public Node removeDuplicates(Node head) 
+    {
+         HashMap<Integer,Integer> map = new HashMap<>();
+         map.put(head.data,1);
+         Node temp = new Node(head.data);
+         Node temp2 = temp;
+         head = head.next;
+         while(head != null){
+             if(map.containsKey(head.data)){
+                 head = head.next;
+             }
+             else{
+                 temp2.next = new Node(head.data);
+                 map.put(head.data,1);
+                 head = head.next;
+                 temp2 = temp2.next;
+             }
+         }
+         return temp;
     }
 }
