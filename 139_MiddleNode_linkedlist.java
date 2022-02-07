@@ -48,9 +48,10 @@ class Driverclass
 		        tail = tail.next;
 		    }
 		   Driverclass d = new Driverclass();
-           System.out.print()
-		      head = new Solution().mergeSort(head);
-		     printList(head);
+           Node tm = new Node(0);
+           tm = d.middleNode(head);
+           System.out.print(tm.data);
+		    // printList(head);
 		    System.out.println();
         }
     }
