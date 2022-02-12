@@ -14,7 +14,7 @@ class Node
 	}
 }
 
-class GFG1
+class GFG
 {
 
 	static int countTriplets(Node head, int x)
