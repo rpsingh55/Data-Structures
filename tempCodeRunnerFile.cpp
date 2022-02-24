@@ -6,35 +6,28 @@
 #define pb push_back
 using namespace std;
 
- int dp[201][201];
-   int solve(int e, int f) 
-   {
-       if(f==0||f==1)
-       return f;
-       if(e==1)
-       return f;
-       if(dp[e][f]!=-1)
-       return dp[e][f];
-       int mn=INT_MAX;
-       for(int k=1;k<=f;k++){
-           int temp=1+max(solve(e-1,k-1),solve(e,f-k));
-           mn=min(mn,temp);
-       }
-       return dp[e][f]=mn;
-   }
-    
-    int eggDrop(int n, int k) 
-    {
-        
-       memset(dp,-1,sizeof(dp));
-       return solve(n,k);
-        
+ int longestSubsequence(int n, int a[])
+{
+    int dp[n+1];
+    dp[0] = 1;
+    for(int i = 1;i < n;i++){
+        dp[i] = 1;
+        for(int j = 0;j < i;j++){
+            if(a[i] > a[j]){
+                dp[i] = max(dp[i] , dp[j] + 1);
+            }
+        }
     }
- 
+    int jawab = 0;
+    for(int i = 0;i < n;i++){
+        jawab = max(jawab, dp[i]);
+    }
+    return jawab;
+}
 
+    
 
 int main(){
-    int arr[] = {5,4,8,4,9,46};
-    cout<<eggDrop(5,6);
+    int arr[] = {3,5,2,4,5,3,1,3,5};
+    cout <<longestSubsequence(9,arr);
 }
- 
