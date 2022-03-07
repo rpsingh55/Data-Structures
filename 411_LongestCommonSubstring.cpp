@@ -24,7 +24,7 @@ using namespace std;
                 jawab = max(jawab, dp[i][j]);
             }
         }
-        return jawab;-
+        return jawab;
     }
  
 
