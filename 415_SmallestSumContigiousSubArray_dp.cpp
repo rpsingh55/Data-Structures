@@ -20,6 +20,7 @@ int smallestSumSubarr(int arr[], int n)
 
         min_so_far = min(min_so_far, min_ending_here);           
     }
+    int jawab = 0;
     return min_so_far;
 }
 
