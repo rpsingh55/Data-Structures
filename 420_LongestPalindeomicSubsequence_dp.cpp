@@ -27,6 +27,7 @@ int main()
 	string seq = "GEEKS FOR GEEKS";
 	int n = seq.size();
 	dp[n][n];
+	int jawab = 0;
 	memset(dp, -1, sizeof(dp));
 	string s2 = seq;
 	reverse(s2.begin(), s2.end());
