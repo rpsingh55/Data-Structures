@@ -91,21 +91,9 @@ void inorder(Node * node)
 }
 
 
- // } Driver Code Ends
-//User function template for C++
-
-/* A binary tree node
-struct Node
-{
-    int data;
-    Node* left, * right;
-}; */
-
 class Solution {
   public:
   
-    // Convert a given tree to a tree where every node contains sum of values of
-    // nodes in left and right subtrees in the original tree
     int toSumTree(Node *node)
     {
         if(node == NULL){
@@ -122,7 +110,7 @@ class Solution {
     }
 };
 
-// { Driver Code Starts.
+
 
 int main()
 {
@@ -140,4 +128,4 @@ int main()
         cout<<endl;
     }
     return 1;
-}  // } Driver Code Ends
+}  
