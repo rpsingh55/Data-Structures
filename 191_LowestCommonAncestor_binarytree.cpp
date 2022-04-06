@@ -114,7 +114,7 @@ int main() {
     scanf("%d",&t);
     while(t--)
     {
-        int a,b;
+        int a, b;
         scanf("%d %d ",&a,&b);
         string s;
         getline(cin,s);
