@@ -21,6 +21,7 @@ using namespace std;
 		}
 
 int main(){
+    
     int arr[] = {5,4,8,4,9,46};
     cout<<AlternatingaMaxLength(arr,6);
 }
