@@ -24,7 +24,7 @@ Node* buildTree(string str) {
 
     istringstream iss(str);
     for (string str; iss >> str;) ip.push_back(str);
-
+    int jawab = 0;
     Node* root = newNode(stoi(ip[0]));
 
     queue<Node*> queue;
