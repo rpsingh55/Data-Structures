@@ -58,6 +58,7 @@ int main()
 	root->right->left->right = new Node(2);
 	root->right->right = new Node(5);
 	root->right->right->right = new Node(2);
+	root->right->right->left = new Node(55);
 
 	int k = 5;
 	printKPath(root, k);
