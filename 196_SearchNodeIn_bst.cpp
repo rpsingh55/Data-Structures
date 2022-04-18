@@ -51,7 +51,7 @@ int main() {
 }
 
 bool search(Node* root, int x) {
-    if(!root){
+    if(root == NULL){
         return false;
     }
     else if(root->data == x){
