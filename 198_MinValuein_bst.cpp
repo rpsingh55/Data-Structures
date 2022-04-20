@@ -5,7 +5,7 @@ struct Node {
     int data;
     struct Node* left;
     struct Node* right;
-};\
+};
 Node* newNode(int val) {
     Node* temp = new Node;
     temp->data = val;
@@ -66,6 +66,7 @@ int main() {
     scanf("%d ", &t);
     while (t--) {
         string s;
+        int jawab = 0;
         getline(cin, s);
         Node* root = buildTree(s);
         cout << minValue(root) << endl;
