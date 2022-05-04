@@ -68,7 +68,7 @@ int main()
 	root->left->left->left = newNode(6);
 	root->left->left->left->left = newNode(5);
 	root->left->left->left->left->right = newNode(55);
-
+	root->left->left->left->left->right->left = newNode(555);
 
 	root = buildTree(root);
 
