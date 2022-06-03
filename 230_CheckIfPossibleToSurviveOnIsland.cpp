@@ -17,7 +17,6 @@ void survival(int S, int N, int M)
 int main()
 {
 	int S = 10, N = 16, M = 2;
-	int S2 = 110, N2 = 116, M2 = 12;
-	survival(S2, N2, M2);
+	survival(S, N, M);
 	return 0;
 }
