@@ -15,19 +15,19 @@ class Solution{
    }
    int findPlatform(int arr[], int dep[], int n)
    {
-       vector<pair<int,char>> vp;
+       vector<pair<int,char>> vectorr;
        
        for(int i=0;i<n;i++)
        {
-           vp.push_back({arr[i] , 'a'});
-           vp.push_back({dep[i] , 'd'});
+           vectorr.push_back({arr[i] , 'a'});
+           vectorr.push_back({dep[i] , 'd'});
        }
        
-       sort(vp.begin() , vp.end() , cmp);
+       sort(vectorr.begin() , vectorr.end() , cmp);
        
        int ct = 0 , mxans = 1;
        
-       for(auto x : vp)
+       for(auto x : vectorr)
        {
            if(x.second == 'a')
            {
