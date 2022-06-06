@@ -62,6 +62,18 @@ int main()
         }
         Solution ob;
         cout <<ob.findPlatform(arr, dep, n)<<endl;
+        /*
+        int n;
+        cin>>n;
+        int arr[n];
+        int dep[n];
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+        for(int j=0;j<n;j++){
+            cin>>dep[j];
+        }
+        Solution ob;
+        cout <<ob.findPlatform(arr, dep, n)<<endl;*/
     } 
    return 0;
 }  
