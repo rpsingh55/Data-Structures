@@ -1,67 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void survival(int S, int N, int M)
+{
 
-class Solution{
-    public:
-  static bool cmp(pair<int,char> &p1 , pair<int,char> &p2)
-   {
-       if(p1.first == p2.first)
-       {
-           return p1.second < p2.second;
-       }
-       
-       return p1.first < p2.first;
-   }
-   int findPlatform(int arr[], int dep[], int n)
-   {
-       vector<pair<int,char>> vectorr;
-       
-       for(int i=0;i<n;i++)
-       {
-           vectorr.push_back({arr[i] , 'a'});
-           vectorr.push_back({dep[i] , 'd'});
-       }
-       
-       sort(vectorr.begin() , vectorr.end() , cmp);
-       
-       int ct = 0 , mxans = 1;
-       
-       for(auto x : vectorr)
-       {
-           if(x.second == 'a')
-           {
-               ct++;
-           }
-           else 
-           {
-               ct--;
-           }
-           mxans = max(mxans , ct);
-       }
-       
-       return mxans;
-   }
-};
+	if (((N * 6) < (M * 7) && S > 6) || M > N)
+		cout << "No\n";
+	else {
+		int days = (M * S) / N;
+		if (((M * S) % N) != 0)
+			days++;
+		cout << "Yes " << days << endl;
+	}
+}
 
+
+void minCashFlow(int graph[][100])
+{
+	int N = 100;
+	int amount[N] = {0};
+
+	for (int p=0; p<N; p++)
+	for (int i=0; i<N; i++)
+		amount[p] += (graph[i][p] - graph[p][i]);
+
+	//minCashFlowRec(amount);
+}
 
 int main()
 {
-    int t;
-    cin>>t;
-    while(t--) 
-    {
-        int n;
-        cin>>n;
-        int arr[n];
-        int dep[n];
-        for(int i=0;i<n;i++)
-            cin>>arr[i];
-        for(int j=0;j<n;j++){
-            cin>>dep[j];
-        }
-        Solution ob;
-        cout <<ob.findPlatform(arr, dep, n)<<endl;
-    } 
-   return 0;
-}  
+	int S = 10, N = 16, M = 2;
+	survival(S, N, M);
+	return 0;
+}

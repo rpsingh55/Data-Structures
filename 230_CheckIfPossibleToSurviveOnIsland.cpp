@@ -14,6 +14,19 @@ void survival(int S, int N, int M)
 	}
 }
 
+
+void minCashFlow(int graph[][100])
+{
+	int N = 100;
+	int amount[N] = {0};
+
+	for (int p=0; p<N; p++)
+	for (int i=0; i<N; i++)
+		amount[p] += (graph[i][p] - graph[p][i]);
+
+	//minCashFlowRec(amount);
+}
+
 int main()
 {
 	int S = 10, N = 16, M = 2;
