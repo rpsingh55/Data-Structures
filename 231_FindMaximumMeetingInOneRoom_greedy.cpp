@@ -1,6 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+    bool possible(int arr[], int n, int mid, int m){
+        int stu = 1;
+        int s = 0;
+        for(int i = 0;i < n;i++){
+            s += arr[i];
+            if(s > mid){
+                stu++;
+                s = arr[i];
+            }
+        }
+        return  stu <= m;
+    }
+    
+
 void maxMeetings(int s[], int f[], int n)
 {
 	pair<int, int> a[n + 1];
