@@ -47,16 +47,10 @@ void maxMeetings(int s[], int f[], int n)
 int main()
 {
 	int s[] = { 1, 3, 0, 5, 8, 5 };
-
 	int f[] = { 2, 4, 6, 7, 9, 9 };
+	int n = sizeof(s) / sizeof(s[0]);
 
-	int s1[] = { 11, 31, 10, 51, 81, 51 };
-
-	int f1[] = { 21, 41, 61, 71, 91, 91 };
-
-	int n = sizeof(s1) / sizeof(s1[0]);
-
-	maxMeetings(s1, f1, n);
+	maxMeetings(s, f, n);
 
 	return 0;
 }
