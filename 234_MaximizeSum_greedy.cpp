@@ -5,6 +5,7 @@ class Solution{
     public:
     int Maximize(int a[],int n)
     {
+        int jawab = 0;
         sort(a,a+n);
        long long int sum=0;
        int mod=1000000007;
